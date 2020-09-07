@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.miao.dao.BokeDao">
+    <resultMap id="baseMap" type="com.miao.pojo.Boke">
+        <id property="bid" column="bid"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="title" column="title"></result>
+        <result property="info" column="info"></result>
+        <result property="nice" column="nice"></result>
+        <result property="watch" column="watch"></result>
+        <result property="down" column="down"></result>
+        <result property="createTime" column="create_time"></result>
+    </resultMap>
+    <select id="findAll" resultType="map">
+        select bid,user_id,title,info,nice,watch,down,create_time from t_boke
+    </select>
+</mapper>

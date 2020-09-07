@@ -1,0 +1,13 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: userservice
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 10.8.159.149:8848
+    sentinel:
+      transport:
+        dashboard: 10.8.159.149:8081

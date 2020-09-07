@@ -1,0 +1,59 @@
+#server:
+#  port: 9090
+#
+#spring:
+#  zipkin:
+#    base-url: http://localhost:9411/
+#    discovery-client-enabled: false
+#    sleuth:
+#      sampler:
+#        probability: 1.0
+#
+#  application:
+#    # 网关名称
+#    name: gateway-microservice
+#  cloud:
+#    nacos:
+#      discovery:
+#        # 开启nacos
+#        server-addr: 127.0.0.1:8848
+#        # 不注册
+#        register-enabled: false
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          #写routes之后必须写predicates
+#      routes:
+#        #一般推荐服务名
+#        - id: consumer-name
+#          #控制我们consumer-name访问服务的路径
+#          uri: lb://consumer-name
+#          # 谓词: 就是满足的条件
+#          predicates:
+#            # 访问的路径，feign是消费方的一级目录
+#            - Path=/feign/**
+#            # 请求的参数中必须携带user这个参数名(可以随便变)，参数值符合 [a-zA-Z]+ 这个正则
+#            - Query=user,[a-zA-Z]+
+#            #           # 设置时间区间内访问
+#            #            - After=2019-11-12T00:00:00+08:00[Asia/Shanghai]
+#            #            - Before=2020-12-31T00:00:00+08:00[Asia/Shanghai]
+#            #请求的方式
+#            - Method=get
+#            - RemoteAddr=10.8.159.149/24
+#            # 请求的头中必须得携带 token, value值符合 [a-zA-Z0-9]+
+#            #- Header=token,[a-zA-Z0-9]+
+#          filters:
+#            # RequestRateLimiter是固定值
+#            - name: RequestRateLimiter
+#              args:
+#                # key-resolver是用于限流的bean对象，通过SpEL的方式 #{@XXX} 取出spring容器中的bean
+#                keyResolver: '#{@redisHostKeyResovler}'
+#                # 每秒往令牌桶中存放的数量
+#                redis-rate-limiter.replenishRate: 2
+#                # 令牌桶初始容量
+#                redis-rate-limiter.burstCapacity: 2
+#  redis:
+#    host: localhost
+#    port: 6379
+#

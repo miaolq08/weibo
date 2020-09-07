@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="getwayservice" />
+        <module name="userservice" />
+        <module name="bokeservice" />
+        <module name="bokeconsumer" />
+        <module name="commitservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bokeconsumer" target="1.8" />
+      <module name="bokeservice" target="1.8" />
+      <module name="commitservice" target="1.8" />
+      <module name="commonsservice" target="1.8" />
+      <module name="getwayservice" target="1.8" />
+      <module name="userservice" target="1.8" />
+      <module name="weibo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bokeconsumer" options="-parameters" />
+      <module name="bokeservice" options="-parameters" />
+      <module name="commitservice" options="-parameters" />
+      <module name="commonsservice" options="-parameters" />
+      <module name="getwayservice" options="-parameters" />
+      <module name="userservice" options="-parameters" />
+    </option>
+  </component>
+</project>
